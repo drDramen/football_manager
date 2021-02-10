@@ -121,6 +121,7 @@ body {
 }
 
 .sidebar {
+    position: relative;
     float: right;
     width: 300px;
     padding: 0 15px;
@@ -152,7 +153,27 @@ body {
 
 .sidebar a:hover {
     color: #2fcf72;
-    /* font-weight: 700; */
+}
+
+.sidebar::after,
+.sidebar p::before,
+.sidebar p::after {
+    content: '';
+    display: none;
+    position: absolute;
+    top: 12px;
+    left: 25px;
+    width: 20px;
+    height: 3px;
+    background-color: #fff;
+}
+
+.sidebar p::before {
+    top: 20px;
+}
+
+.sidebar p::after {
+    top: 28px;
 }
 
 .footer {
@@ -166,10 +187,6 @@ body {
     .about {
         width: calc(100% - 300px);
     }
-
-    .sidebar {
-        width: 300px;
-    }
 }
 
 @media screen and (max-width: 768px) {
@@ -182,8 +199,14 @@ body {
         right: 0;
         width: 280px;
     }
+    .sidebar::after,
+    .sidebar p::before,
+    .sidebar p::after {
+        display: block;
+    }
     .sidebar p {
         margin-bottom: 0;
+        padding-left: 40px;
         cursor: pointer;
     }
     .sidebar ul {
@@ -220,7 +243,6 @@ body {
         float: none;
         text-align: center;
     }
-
     .logo p {
         float: none;
         margin-right: 0;
@@ -228,7 +250,6 @@ body {
     .logo i {
         display: none;
     }
-
     .contact {
         float: none;
         margin-bottom: 48px;
@@ -239,6 +260,13 @@ body {
         left: 0;
         padding: 0;
         width: 100%;
-
+    }
+    .sidebar > p {
+        padding-left: 50px;
+    }
+    .sidebar::after,
+    .sidebar p::before,
+    .sidebar p::after {
+        left: 15px;
     }
 }
